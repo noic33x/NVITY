@@ -16,7 +16,7 @@ export default function Dashboard() {
 
             if (!token) {
                 alert('Login to Access this Page');
-                window.location.href="/login";
+                location.href="/login";
               return;
             }
             try {
