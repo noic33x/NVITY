@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav';
 import Card from '../components/Card';
@@ -16,7 +16,7 @@ export default function Dashboard() {
 
             if (!token) {
                 alert('Login to Access this Page');
-                location.href="/login";
+                location.href="/#/login";
               return;
             }
             try {
