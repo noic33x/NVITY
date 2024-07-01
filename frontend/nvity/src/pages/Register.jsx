@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 export default function Login() {
     const[name, setName] = useState('');
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
+    const navigate = useNavigate();
     async function register(){
         const response = await axios.post('http://localhost:3000/user/register', {name, email, password});
-        console.log(response);
+        navigate('/login');
     }
     return(
         <div className="h-screen w-screen bg-body flex justify-center items-center">

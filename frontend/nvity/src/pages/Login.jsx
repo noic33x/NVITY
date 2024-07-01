@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 export default function Login() {
+    const navigate = useNavigate()
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     async function login(){
@@ -8,7 +10,7 @@ export default function Login() {
         localStorage.setItem('token', JSON.stringify(response.data.token));
         localStorage.setItem('userId', JSON.stringify(response.data.user._id));
         localStorage.setItem('userName', JSON.stringify(response.data.user.name));
-        window.location.href = "/"
+        navigate('/');
     }
     return(
         <div className="h-screen w-screen bg-body flex justify-center items-center">

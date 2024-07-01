@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, } from 'react';
+import { useNavigate} from "react-router-dom";
 import axios from 'axios';
 import Nav from '../components/Nav';
 import Card from '../components/Card';
@@ -9,6 +10,7 @@ export default function Dashboard() {
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
     const [ids, setIds] = useState(false);
+    const navigate = useNavigate()
     useEffect(()=> {
         const loadTasks = async () => {
             const token = JSON.parse(localStorage.getItem('token'));
@@ -16,17 +18,16 @@ export default function Dashboard() {
 
             if (!token) {
                 alert('Login to Access this Page');
-                window.location.href="/login";
+                navigate("/login")
               return;
             }
             try {
-              const response = await axios.post(`http://localhost:3000/task/complete`, {token, userId});
+              const response = await axios.post(`http://localhost:3000/task`, {token, userId});
               setTasks(response.data);
             } catch (error) {
               console.error(error);
             }
           };
-      
           loadTasks();
     }, [])
     async function deleteTask(id) {
