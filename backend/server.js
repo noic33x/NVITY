@@ -17,6 +17,9 @@ mongoose.connect(dbUri)
     .then(() => {
         console.log("connect to DB");
         //routes
+        app.get('/', (req,res)=> {
+            res.send('berhasil');
+        })
         app.use('/user', userRoutes)
         app.use('/task', taskRoutes)
         //Listen
