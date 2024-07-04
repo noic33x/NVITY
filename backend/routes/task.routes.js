@@ -29,4 +29,8 @@ router.post('/priority/:id', changeToPriority)
 //unpriority the task
 router.post('/unpriority/:id', changeToUnpriority)
 
+router.get('/test', (req, res)=> {
+    res.send('berhasil')
+})
+
 module.exports = router;
