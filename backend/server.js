@@ -6,8 +6,8 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const dbUri = process.env.DB_URI;
 //import routes
-const userRoutes = require('../routes/user.routes');
-const taskRoutes = require('../routes/task.routes');
+const userRoutes = require('./routes/user.routes');
+const taskRoutes = require('./routes/task.routes');
 
 //middleware
 app.use(express.json());
